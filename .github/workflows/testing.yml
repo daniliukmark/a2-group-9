@@ -1,1 +1,6 @@
+name: Empty Workflow
 
+on:
+  push:
+    branches:
+      - main
