@@ -1,6 +1,31 @@
-name: Empty Workflow
+name: Create Release
 
 on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '**'
+    tags-ignore:
+      - '*'
+
+jobs:
+  create-release:
+    if: contains(github.event.head_commit.message, 'release')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.sha }}
+          release_name: Release ${{ github.sha }}
+          body: |
+            Release created from commit:
+            ${{ github.event.head_commit.message }}
