@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - '**'
-    tags-ignore:
-      - '*'
 
 jobs:
   create-release:
