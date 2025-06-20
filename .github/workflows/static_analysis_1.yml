@@ -23,7 +23,7 @@ jobs:
     - name: Run Pylint
       run: |
         # Run pylint on all Python files in src directory
-        # Using a threshold score of 7.0/10 (adjust as needed)
+        # Using a threshold score of 7.0/10
         pylint --fail-under=7 src/*.py || echo "Pylint check completed with warnings"
         
     - name: Generate Pylint report
