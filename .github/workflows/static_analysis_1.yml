@@ -32,7 +32,7 @@ jobs:
         pylint --output-format=text src/*.py > pylint_report.txt || true
         
     - name: Upload Pylint report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: pylint-report
         path: pylint_report.txt
