@@ -8,8 +8,8 @@ on:
 
 jobs:
   release:
-    if: contains(github.event.head_commit.message, 'release')
     runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, 'release')
 
     steps:
       - name: Checkout
@@ -20,7 +20,7 @@ jobs:
 
       - name: Create changelog
         run: git log -n20 --pretty=format:"* %s (%h)" > CHANGELOG.md
-        
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
