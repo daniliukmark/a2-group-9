@@ -24,8 +24,8 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-        tag_name: ${{ env.TAG }}
-        name: Release ${{ env.TAG }}
+          tag_name: ${{ env.TAG }}
+          name: Release ${{ env.TAG }}
           files: CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
