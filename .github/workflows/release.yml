@@ -16,12 +16,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Generate changelog
-        id: changelog
-        run: |
-          git log -n 20 --pretty=format:"* %s (%h)" > CHANGELOG.md
-          echo "changelog<<EOF" >> $GITHUB_OUTPUT
-          cat CHANGELOG.md >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+        run: git log -n20 --pretty=format:"* %s (%h)" > CHANGELOG.md
 
       - name: Create release tag
         run: echo "TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
