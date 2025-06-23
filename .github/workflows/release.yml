@@ -20,7 +20,7 @@ jobs:
 
       - name: Create changelog
         run: git log -n20 --pretty=format:"* %s (%h)" > CHANGELOG.md
- 
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -29,5 +29,3 @@ jobs:
           files: CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
