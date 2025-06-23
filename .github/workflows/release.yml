@@ -15,14 +15,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Create release tag
+        run: echo "TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
+
       - name: Create changelog
         run: git log -n20 --pretty=format:"* %s (%h)" > CHANGELOG.md
  
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.sha }}
-          name: Release ${{ github.sha }}
+        tag_name: ${{ env.TAG }}
+        name: Release ${{ env.TAG }}
           files: CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
