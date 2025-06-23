@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - release # for testing
+      - release
 
 jobs:
   release:
@@ -14,29 +14,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
- 
-      - name: Generate changelog
+
+      - name: Create changelog
         run: git log -n20 --pretty=format:"* %s (%h)" > CHANGELOG.md
 
-      - name: Create release tag
-        run: echo "TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
-
       - name: Create GitHub Release
-        id: create
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.sha }}
+          name: Release ${{ github.sha }}
+          files: CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ env.TAG }}
-          release_name: Release ${{ env.TAG }}
-
-      - name: Upload changelog asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./CHANGELOG.md
-          asset_name: CHANGELOG.md
-          asset_content_type: text/markdown
-
