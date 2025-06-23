@@ -4,28 +4,39 @@ on:
   push:
     branches:
       - main
-      - release
+      - release # for testing
 
 jobs:
   release:
-    runs-on: ubuntu-latest
     if: contains(github.event.head_commit.message, 'release')
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Generate changelog
+        run: |
+          git log -n 20 --pretty=format:"* %s (%h)" > CHANGELOG.md
+
       - name: Create release tag
         run: echo "TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
 
-      - name: Create changelog
-        run: git log -n20 --pretty=format:"* %s (%h)" > CHANGELOG.md
-
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ env.TAG }}
-          name: Release ${{ env.TAG }}
-          files: CHANGELOG.md
+        id: create
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.TAG }}
+          release_name: Release ${{ env.TAG }}
+  
+      - name: Upload changelog
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create.outputs.upload_url }}
+          asset_path: CHANGELOG.md
+          asset_name: CHANGELOG.md
+          asset_content_type: text/markdown
