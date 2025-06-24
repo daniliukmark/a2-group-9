@@ -4,9 +4,9 @@ Programming language used: Python
 
 ## Workflow 1: Testing (`testing.yml`)
 
-<Inform which tool is used to compile and test.>
+PyTest was used for testing.yml
 
-<Provide the link to one log (from the "Actions" tab on GitHub) of an execution of this workflow>
+https://github.com/daniliukmark/a2-group-9/actions/runs/15850860455
 
 ## Workflow 2: Static analysis (`static_analysis_1.yml`)
 
@@ -32,5 +32,5 @@ https://github.com/daniliukmark/a2-group-9/actions/runs/15822274055/job/44594052
 | --- | --- | --- | --- |
 | Arek|Static Analysis 1 |Release |#11 |
 | Mark|Release |Static Analysis 1 |#10 |
-| Member C | | | |
+| Felice|Testing | Testings | #19 |
 | Member D | | | |
