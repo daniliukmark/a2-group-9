@@ -22,7 +22,7 @@ https://github.com/daniliukmark/a2-group-9/actions/runs/15822274055/job/44594052
 
 ## Workflow 4: Release (`release.yml`)
 
-<Provide the link to one log (from the "Actions" tab on GitHub) of an execution of this workflow>
+[Execution of the workflow](https://github.com/daniliukmark/a2-group-9/actions/runs/15822274053)
 
 ## Statement of individual contributions
 
