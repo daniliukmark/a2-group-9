@@ -32,5 +32,5 @@ https://github.com/daniliukmark/a2-group-9/actions/runs/15822274055/job/44594052
 | --- | --- | --- | --- |
 | Arek|Static Analysis 1 |Release |#11 |
 | Mark|Release |Static Analysis 1 |#10 |
-| Felice|Testing |Static Analysis 2 | #19 |
-| Tijn|Static Analysis 2 |Testing |#13 |
+| Felice|Testing |Static Analysis 2 |#13 |
+| Tijn|Static Analysis 2 |Testing |#19 |
