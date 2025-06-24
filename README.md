@@ -16,9 +16,9 @@ https://github.com/daniliukmark/a2-group-9/actions/runs/15822274055/job/44594052
 
 ## Workflow 3: Static analysis (`static_analysis_2.yml`)
 
-<Inform which tool is used to perform code quality check with static analysis.>
+PyFlakes was used for static analysis 2.
 
-<Provide the link to one log (from the "Actions" tab on GitHub) of an execution of this workflow>
+https://github.com/daniliukmark/a2-group-9/actions/runs/15849563104
 
 ## Workflow 4: Release (`release.yml`)
 
