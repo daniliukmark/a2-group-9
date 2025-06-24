@@ -25,4 +25,5 @@ jobs:
           pip install pytest
 
       - name: Testings
-        run: pytest tests/
+        run: PYTHONPATH=$(pwd) pytest tests/
+
