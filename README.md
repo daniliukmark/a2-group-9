@@ -31,6 +31,6 @@ https://github.com/daniliukmark/a2-group-9/actions/runs/15822274055/job/44594052
 | Member | Created workflows | Reviewed workflows | Merged pull requests' number |
 | --- | --- | --- | --- |
 | Arek|Static Analysis 1 |Release |10 |
-| Member B | | | |
+| Mark|Release |Static Analysis 1 | |
 | Member C | | | |
 | Member D | | | |
